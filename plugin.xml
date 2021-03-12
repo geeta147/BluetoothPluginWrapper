@@ -18,6 +18,6 @@
         <source-file src="src/android/BluetoothPluginWrapper.java" target-dir="src/cordova/plugin/bluetoothpluginwrapper/BluetoothPluginWrapper" />
         <source-file src="src/android/libs/armeabi/libserialport.so" target-dir="libs/armeabi/" />
         <source-file src="src/android/libs/armeabi/libserial_port.so" target-dir="libs/armeabi/" />
-        <source-file src="src/android/libs/armeabi/lib01jni.so" target-dir="libs/armeabi/" />
+        <source-file src="src/android/libs/armeabi/liba01jni.so" target-dir="libs/armeabi/" />
     </platform>
 </plugin>
