@@ -64,7 +64,7 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				else {
 					if (!mBluetoothAdapter.isEnabled()) {
 		                Intent discoveryIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-		                startActivityForResult(discoveryIntent, REQUEST_ENABLE_BT);
+		                cordova.startActivityForResult(this,discoveryIntent, 3);
 		            }
 				}
 				pairedDevices = mBluetoothAdapter.getBondedDevices();
@@ -128,6 +128,21 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				}
 			}
 			return;
+		case 3:
+			if(resultCode == Activity.RESULT_OK){
+				try {
+						JSONObject object = new JSONObject();
+						if (data != null) {
+						String result = data.getStringExtra("PID_DATA");
+						object.put("error", "Please enable bluetooth");
+					}
+					onSuccessRes(object);
+				}
+				catch {
+					Log.e("Error", "Error", e);
+					onFailedRes(e.toString());
+				}
+			}
 		}
 
 		super.onActivityResult(requestCode, resultCode, data);
