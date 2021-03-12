@@ -7,7 +7,7 @@
         <clobbers target="BluetoothPluginWrapper" />
     </js-module>
     <platform name="android">
-    <lib-file src="libs/mPaySdk_sandbox_2.0.8_23102019.jar" />
+    <lib-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.jar" />
 
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="BluetoothPluginWrapper">
