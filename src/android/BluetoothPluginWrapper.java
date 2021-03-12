@@ -138,7 +138,7 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 					}
 					onSuccessRes(object);
 				}
-				catch {
+				catch(Exception e) {
 					Log.e("Error", "Error", e);
 					onFailedRes(e.toString());
 				}
