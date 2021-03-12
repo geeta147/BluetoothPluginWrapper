@@ -25,7 +25,7 @@ import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
-import java.util.Set;
+
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -54,24 +54,12 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 	@Override
 	public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
 		this.callbackContext = callbackContext;
-		 if(action.equals("miniATM")) {
-			 mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-				if (mBluetoothAdapter == null) {
-					PluginResult result = new PluginResult(PluginResult.Status.ERROR, "Please Enable Bluetooth");
-					result.setKeepCallback(true);
-					callbackContext.sendPluginResult(result);
-		        }
-				else {
-					if (!mBluetoothAdapter.isEnabled()) {
-		                Intent discoveryIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-		                cordova.startActivityForResult(this,discoveryIntent, 3);
-		            }
-				}
-				pairedDevices = mBluetoothAdapter.getBondedDevices();
-				 for (BluetoothDevice device : pairedDevices) {
-			            deviceName = device.getName();
-			            Log.e("Paired Devices", deviceName);
-				 }
+		pairedDevices = mBluetoothAdapter.getBondedDevices();
+		 for (BluetoothDevice device : pairedDevices) {
+	            deviceName = device.getName();
+	            Log.e("Paired Devices", deviceName);
+		 }
+		 if(action.equals("miniATM")){
 			try {
 				Intent intent = new Intent();
 				intent.setAction("com.pnsol.sdk.payment.PaymentInitialization");
@@ -80,7 +68,7 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				intent.putExtra("DEVICE_NAME", "me30s");
 				intent.putExtra("amount","100");
 				intent.putExtra("MAC_ADDRESS", "");
-				intent.putExtra("DEVICE_COMMUNICATION_MODE", "BLUETOOTHCOMMUNICATION");
+				intent.putExtra("DEVICE_COMMUNICATION_MODE", "");
 				intent.putExtra("cashBackAmoumt", "0");
 				cordova.startActivityForResult(this, intent, 1);
 			} catch (Exception e) {
@@ -88,23 +76,22 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 			}
 			return true;
 		 }
-		 else {
-			 return false;
-		 }
+			
 	}
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
 		switch (requestCode) {
 		case 1:
 			if (resultCode == Activity.RESULT_OK) {
 				try {
 					if (data != null) {
-						String result = data.getStringExtra("dateTime");
-						String rdService = data.getStringExtra("responseCode");
+						String result = data.getStringExtra("DEVICE_INFO");
+						String rdService = data.getStringExtra("RD_SERVICE_INFO");
 						JSONObject object = new JSONObject();
-						object.put("dateTime", rdService);
-						object.put("responseCode", result);
+						object.put("rd_service_info", rdService);
+						object.put("device_info", result);
 						onSuccessRes(object);
 					}
 				} catch (Exception e) {
@@ -128,21 +115,6 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				}
 			}
 			return;
-		case 3:
-			if(resultCode == Activity.RESULT_OK){
-				try {
-						JSONObject object = new JSONObject();
-						if (data != null) {
-						String result = data.getStringExtra("PID_DATA");
-						object.put("error", "Please enable bluetooth");
-					}
-					onSuccessRes(object);
-				}
-				catch(Exception e) {
-					Log.e("Error", "Error", e);
-					onFailedRes(e.toString());
-				}
-			}
 		}
 
 		super.onActivityResult(requestCode, resultCode, data);
