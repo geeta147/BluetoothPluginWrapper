@@ -9,6 +9,7 @@
     <platform name="android">
     <!-- <lib-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.jar" /> -->
     <!-- <lib-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.jar" /> -->
+       <framework src="src/android/app/build.gradle" custom="true" type="gradleReference"/>
 
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="BluetoothPluginWrapper">

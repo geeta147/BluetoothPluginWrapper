@@ -25,6 +25,8 @@ import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
+import java.util.Set;
+
 
 /**
  * This class echoes a string called from JavaScript.
