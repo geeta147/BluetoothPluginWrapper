@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-BluetoothPluginWrapper" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>BluetoothPluginWrapper</name>
+    <js-module name="BluetoothPluginWrapper" src="www/BluetoothPluginWrapper.js">
+        <clobbers target="BluetoothPluginWrapper" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="BluetoothPluginWrapper">
+                <param name="android-package" value="cordova.plugin.bluetoothpluginwrapper.BluetoothPluginWrapper" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="src/android/BluetoothPluginWrapper.java" target-dir="src/cordova-plugin/BluetoothPluginWrapper/BluetoothPluginWrapper" />
+    </platform>
+</plugin>
