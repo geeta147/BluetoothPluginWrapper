@@ -19,5 +19,6 @@
         <source-file src="src/android/libs/armeabi/libserialport.so" target-dir="libs/armeabi/" />
         <source-file src="src/android/libs/armeabi/libserial_port.so" target-dir="libs/armeabi/" />
         <source-file src="src/android/libs/armeabi/liba01jni.so" target-dir="libs/armeabi/" />
+         <source-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.jar" target-dir="libs/" />
     </platform>
 </plugin>
