@@ -1,0 +1,19 @@
+{
+  "name": "bluetoothpluginwrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geeta147/BluetoothPluginWrapper.git"
+  },
+  "author": "geeta balodi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geeta147/BluetoothPluginWrapper/issues"
+  },
+  "homepage": "https://github.com/geeta147/BluetoothPluginWrapper#readme"
+}
