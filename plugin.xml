@@ -16,7 +16,7 @@
             </feature>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
-        <source-file src="src/android/BluetoothWrapper.java" target-dir="src/bluetooth/BluetoothWrapper" />
+        <source-file src="src/android/BluetoothPluginWrapper.java" target-dir="src/bluetoothpluginwrapper/BluetoothPluginWrapper" />
         <source-file src="src/android/libs/armeabi/libserialport.so" target-dir="libs/armeabi/" />
         <source-file src="src/android/libs/armeabi/libserial_port.so" target-dir="libs/armeabi/" />
         <source-file src="src/android/libs/armeabi/liba01jni.so" target-dir="libs/armeabi/" />
