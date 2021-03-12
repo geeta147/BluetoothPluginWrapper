@@ -25,7 +25,7 @@ import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
-
+import java.util.Set;
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -100,13 +100,12 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 			if (resultCode == Activity.RESULT_OK) {
 				try {
 					if (data != null) {
-						data = new JSONObject();
-//						String result = data.getStringExtra("DEVICE_INFO");
-//						String rdService = data.getStringExtra("RD_SERVICE_INFO");
-//						JSONObject object = new JSONObject();
-//						object.put("rd_service_info", rdService);
-//						object.put("device_info", result);
-						onSuccessRes(data);
+						String result = data.getStringExtra("dateTime");
+						String rdService = data.getStringExtra("responseCode");
+						JSONObject object = new JSONObject();
+						object.put("dateTime", rdService);
+						object.put("responseCode", result);
+						onSuccessRes(object);
 					}
 				} catch (Exception e) {
 					Log.e("Error", "Error", e);
