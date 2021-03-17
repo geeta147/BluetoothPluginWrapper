@@ -78,7 +78,7 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 			}
 			return true;
 		 }
-			
+		return false;	
 	}
 	
 	@Override
