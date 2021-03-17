@@ -18,9 +18,9 @@
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/BluetoothPluginWrapper.java" target-dir="src/bluetoothpluginwrapper/BluetoothPluginWrapper" />
-        <source-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.jar" arch="device" target-dir="libs/" />
+        <!-- <source-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.aar" arch="device" target-dir="libs/" /> -->
         <!-- <lib-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.jar" arch="device"/> -->
-        <lib-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.jar" arch="device" />
+        <lib-file src="src/android/libs/mPaySdk_sandbox_2.0.8_23102019.aar" arch="device" />
         <source-file src="src/android/libs/armeabi/libserialport.so" target-dir="libs/armeabi/" />
         <source-file src="src/android/libs/armeabi/libserial_port.so" target-dir="libs/armeabi/" />
         <source-file src="src/android/libs/armeabi/liba01jni.so" target-dir="libs/armeabi/" />
