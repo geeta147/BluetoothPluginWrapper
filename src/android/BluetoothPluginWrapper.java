@@ -56,11 +56,11 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 	@Override
 	public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
 		this.callbackContext = callbackContext;
-		pairedDevices = mBluetoothAdapter.getBondedDevices();
-		 for (BluetoothDevice device : pairedDevices) {
-	            deviceName = device.getName();
-	            Log.e("Paired Devices", deviceName);
-		 }
+		// pairedDevices = mBluetoothAdapter.getBondedDevices();
+		//  for (BluetoothDevice device : pairedDevices) {
+	    //         deviceName = device.getName();
+	    //         Log.e("Paired Devices", deviceName);
+		//  }
 		 if(action.equals("miniATM")){
 			try {
 				Intent intent = new Intent();
