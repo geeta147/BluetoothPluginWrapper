@@ -67,7 +67,7 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				// https://sandbox.payswiff.com/merchantConfiguration/paymentTypes
 				// intent.setAction("com.pnsol.sdk.payment.PaymentInitialization");
 				// intent.setAction(" com.pnsol.sdk.vo.response.PaymentTypes");
-				intent.putExtra(PAYMENT_TYPE, microATM);
+				intent.putExtra(PAYMENT_TYPE, "microATM");
 				intent.putExtra(referanceno, 123456);
 				intent.putExtra(DEVICE_NAME, "C-ME30S-099184");
 				intent.putExtra(amount,10);
