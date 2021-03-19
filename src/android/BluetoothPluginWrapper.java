@@ -64,16 +64,25 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 		 if(action.equals("miniATM")){
 			try {
 				Intent intent = new Intent();
+				// Intent intent = new Intent();
 				// https://sandbox.payswiff.com/merchantConfiguration/paymentTypes
-				// intent.setAction("com.pnsol.sdk.payment.PaymentInitialization");
+				  intent.setAction("com.pnsol.sdk.payment.PaymentInitialization");
 				// intent.setAction(" com.pnsol.sdk.vo.response.PaymentTypes");
-				intent.putExtra(PAYMENT_TYPE, "microATM");
-				intent.putExtra(referanceno, 123456);
-				intent.putExtra(DEVICE_NAME, "C-ME30S-099184");
-				intent.putExtra(amount,10);
-				intent.putExtra(MAC_ADDRESS, "38:3C:9C:EA:9F:73");
-				intent.putExtra(DEVICE_COMMUNICATION_MODE, "BLUETOOTHCOMMUNICATION");
-				// intent.putExtra("cashBackAmoumt", "0");
+				  intent.putExtra("MAC_ADDRESS", "38:3C:9C:EA:9F:73");
+                  intent.putExtra("DEVICE_NAME", "C-ME30S-099184");
+                  intent.putExtra("DEVICE_COMMUNICATION_MODE",1);
+                  intent.putExtra("PAYMENT_TYPE", "BalanceEnquiry");
+                  intent.putExtra("referanceno", "1616171475463");
+                  intent.putExtra("amount","10.00");
+                  intent.putExtra("cashBackAmoumt", "");
+				
+				// intent.putExtra(PAYMENT_TYPE, 8);
+				// intent.putExtra("referanceno", "123456");
+				// intent.putExtra(DEVICE_NAME, "C-ME30S-099184");
+				// intent.putExtra("amount","10");
+				// intent.putExtra(MAC_ADDRESS, "38:3C:9C:EA:9F:73");
+				// intent.putExtra(DEVICE_COMMUNICATION_MODE, "BLUETOOTHCOMMUNICATION");
+				// intent.putExtra("cashBackAmoumt", "");
 				cordova.startActivityForResult(this, intent, 1);
 			} catch (Exception e) {
 				Log.e("Error", e.toString());
