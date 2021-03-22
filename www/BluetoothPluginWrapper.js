@@ -1,7 +1,7 @@
 module.exports = {
-	miniATM : function(name, successCallback, errorCallback) {
-		cordova.exec(successCallback, errorCallback, "BluetoothPluginWrapper",
-				"miniATM", [ name ]);
+	miniATM : function(params, successCallback, errorCallback) {
+
+		cordova.exec(successCallback, errorCallback, "BluetoothPluginWrapper","miniATM", [params]);
 	},
 	
 };
