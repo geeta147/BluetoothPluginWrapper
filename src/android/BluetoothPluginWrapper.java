@@ -74,7 +74,7 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
                   intent.putExtra("PAYMENT_TYPE", "BalanceEnquiry");
                   intent.putExtra("referanceno", "1616171475463");
                   intent.putExtra("amount","10.00");
-                  intent.putExtra("cashBackAmoumt", "");
+                //   intent.putExtra("cashBackAmoumt", "");
 				
 				// intent.putExtra(PAYMENT_TYPE, 8);
 				// intent.putExtra("referanceno", "123456");
