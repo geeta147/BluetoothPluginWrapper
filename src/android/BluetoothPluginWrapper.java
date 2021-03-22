@@ -100,11 +100,11 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 			if (resultCode == Activity.RESULT_OK) {
 				try {
 					if (data != null) {
-						String result = data.getStringExtra("DEVICE_INFO");
-						String rdService = data.getStringExtra("RD_SERVICE_INFO");
+						String result = data.getStringExtra("MINI_ATM");
+						// String rdService = data.getStringExtra("RD_SERVICE_INFO");
 						JSONObject object = new JSONObject();
-						object.put("rd_service_info", rdService);
-						object.put("device_info", result);
+						// object.put("rd_service_info", rdService);
+						object.put("miniATM", result);
 						onSuccessRes(object);
 					}
 				} catch (Exception e) {
