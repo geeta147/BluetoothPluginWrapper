@@ -84,7 +84,7 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				// // intent.putExtra(MAC_ADDRESS, "38:3C:9C:EA:9F:73");
 				// // intent.putExtra(DEVICE_COMMUNICATION_MODE, "BLUETOOTHCOMMUNICATION");
 				// // intent.putExtra("cashBackAmoumt", "");
-				 initialization = new PaymentInitialization();
+				 initialization = new PaymentInitialization(Context context);
                 initialization.initiateTransaction("","C-ME30S-099184",
                         "38:3C:9C:EA:9F:73",
                         "10",
