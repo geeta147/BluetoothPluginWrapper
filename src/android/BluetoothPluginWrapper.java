@@ -86,19 +86,17 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				// // intent.putExtra("cashBackAmoumt", "");
 				Context context = cordova.getActivity();
 				 initialization = new PaymentInitialization(context);
-                initialization.initiateTransaction(null,"C-ME30S-099184",
+                initialization.initiateTransaction("C-ME30S-099184",
                         "38:3C:9C:EA:9F:73",
-                        "10",
+                        "10.00",
                         "BalanceEnquiry",
                         "POS",
-                        null,
-                        null,
                         71.000001,
                         17.000001,
-                        "1616171475463",
-                        null,
-                        1,
-                        "1616171475463",
+                        // "1616171475463",
+                        // null,
+                        // 1,
+                        // "1616171475463",
                         "",
                         "");
 				// cordova.startActivityForResult(this, intent, 1);
