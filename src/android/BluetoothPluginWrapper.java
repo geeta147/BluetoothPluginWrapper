@@ -25,6 +25,7 @@ import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
+import android.os.Handler;
 import java.util.Set;
 
 
@@ -32,8 +33,8 @@ import java.util.Set;
  * This class echoes a string called from JavaScript.
  */
 public class BluetoothPluginWrapper extends CordovaPlugin {
-
-  private BluetoothAdapter mBluetoothAdapter;
+Handler mHandler;
+private BluetoothAdapter mBluetoothAdapter;
 	
 private CallbackContext callbackContext;
 	
@@ -43,7 +44,6 @@ private static final int REQUEST_ENABLE_BT = 1;
 private PaymentInitialization initialization;
 	 
 private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, ipandport, deviceType;
-	
 	public BluetoothPluginWrapper() {
 		
 	}
@@ -51,11 +51,13 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 	@Override
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);
-
+        
 	}
 	
 	@Override
 	public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
+     	mHandler=new Handler();
+
 		this.callbackContext = callbackContext;
 		pairedDevices = mBluetoothAdapter.getBondedDevices();
 		 for (BluetoothDevice device : pairedDevices) {
@@ -68,7 +70,10 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				// // Intent intent = new Intent();
 				// // https://sandbox.payswiff.com/merchantConfiguration/paymentTypes
 				//   intent.setAction("com.pnsol.sdk.payment.PaymentInitialization.initiateTransaction");
-				// // intent.setAction(" com.pnsol.sdk.vo.response.PaymentTypes");
+				// intent.setAction(" com.pnsol.sdk.vo.response.PaymentTypes");
+				//   intent.putExtra("Handler",mHandler);
+                //   intent.putExtra("DEVICE_NAME", "C-ME30S-099184");
+
 				//   intent.putExtra("MAC_ADDRESS", "38:3C:9C:EA:9F:73");
                 //   intent.putExtra("DEVICE_NAME", "C-ME30S-099184");
                 //   intent.putExtra("DEVICE_COMMUNICATION_MODE",1);
@@ -86,19 +91,24 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
 				// // intent.putExtra("cashBackAmoumt", "");
 				Context context = cordova.getActivity();
 				 initialization = new PaymentInitialization(context);
-                initialization.initiateTransaction("C-ME30S-099184",
+                initialization.initiateTransaction(mHandler,
+				        "C-ME30S-099184",
                         "38:3C:9C:EA:9F:73",
                         "10.00",
                         "BalanceEnquiry",
+						// "MICROATM",
                         "POS",
-                        71.000001,
+						"7454957737",
+						"",
+						71.000001,
                         17.000001,
-                        // "1616171475463",
-                        // null,
-                        // 1,
-                        // "1616171475463",
-                        "",
-                        "");
+                        "1616171475463",
+                         null,
+						 1,
+						 "orderRef",
+						 "appName",
+						 "appVersion"
+                       );
 				// cordova.startActivityForResult(this, intent, 1);
 			} catch (Exception e) {
 				Log.e("Error", e.toString());
