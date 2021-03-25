@@ -59,11 +59,11 @@ private String deviceMACAddress, deviceName, device_MAC_Add, selectedUSBDevice, 
      	mHandler=new Handler();
 
 		this.callbackContext = callbackContext;
-		pairedDevices = mBluetoothAdapter.getBondedDevices();
-		 for (BluetoothDevice device : pairedDevices) {
-	            deviceName = device.getName();
-	            Log.e("Paired Devices", deviceName);
-		 }
+		// pairedDevices = mBluetoothAdapter.getBondedDevices();
+		//  for (BluetoothDevice device : pairedDevices) {
+	    //         deviceName = device.getName();
+	    //         Log.e("Paired Devices", deviceName);
+		//  }
 		 if(action.equals("miniATM")){
 			try {
 				// Intent intent = new Intent();
